@@ -6,6 +6,7 @@ const indexRouter = require("./routes/indexRouter");
 const newRouter = require("./routes/newRouter");
 
 app.use("/", indexRouter);
+app.use("/new", newRouter);
 const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
 
