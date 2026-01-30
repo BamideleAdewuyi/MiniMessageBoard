@@ -3,5 +3,5 @@ const Router = require('express');
 const newRouter = Router();
 
 newRouter.get("/", (req, res) => {
-    res.render("new");
+    res.render("form");
 });
