@@ -4,3 +4,5 @@ const app = express();
 const indexRouter = require("./routes/indexRouter");
 
 app.use("/", indexRouter);
+
+const PORT = 3000;
