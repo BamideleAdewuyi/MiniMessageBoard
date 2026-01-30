@@ -3,6 +3,7 @@ const path = require("node:path");
 const app = express();
 
 const indexRouter = require("./routes/indexRouter");
+const newRouter = require("./routes/newRouter");
 
 app.use("/", indexRouter);
 const assetsPath = path.join(__dirname, "public");
