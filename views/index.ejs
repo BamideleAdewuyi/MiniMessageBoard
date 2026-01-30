@@ -1,5 +1,13 @@
 <html>
     <body>
-        
+        <div class="messages">
+            <% for (const message of messages) { %>
+                <div class="message">
+                    <p>Message: <%= message.text %></p>
+                    <p>From: <%= message.user %></p>
+                    <p>Sent: <%= message.added %></p>
+                </div> 
+            <% } %>
+        </div>
     </body>
 </html>
