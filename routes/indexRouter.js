@@ -18,3 +18,5 @@ const messages = [
 indexRouter.get("/", (req, res) => {
     res.send(`Index page`);
 });
+
+module.exports = indexRouter;
