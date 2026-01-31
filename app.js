@@ -2,12 +2,13 @@ const express = require('express');
 const path = require("node:path");
 const app = express();
 
+app.use(express.urlencoded({ extended: true }));
+
 const indexRouter = require("./routes/indexRouter");
 const newRouter = require("./routes/newRouter");
 
 app.use("/", indexRouter);
 app.use("/new", newRouter);
-app.use(express.urlencoded({ extended: true }));
 
 const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
