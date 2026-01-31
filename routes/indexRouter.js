@@ -20,7 +20,8 @@ indexRouter.get("/", (req, res) => {
 });
 
 indexRouter.post("/new", (req, res) => {
-  messages.push({ text: message, user: name, added: new Date() });
+  const response = req.body;
+  messages.push({ text: response.message, user: response.name, added: new Date() });
   res.redirect("/");
 });
 
