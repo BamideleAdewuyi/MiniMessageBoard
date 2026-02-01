@@ -17,6 +17,10 @@ const messages = [
   }
 ];
 
+async function getMessageById(messageId) {
+    return messages.find(message => message.id === messageId);
+};
+
 indexRouter.get("/", (req, res) => {
   res.render(`index`, { messages: messages, title: "Mini Messageboard" });
 });
@@ -27,4 +31,4 @@ indexRouter.post("/new", (req, res) => {
   res.redirect("/");
 });
 
-module.exports = indexRouter;
+module.exports = { indexRouter, getMessageById};
