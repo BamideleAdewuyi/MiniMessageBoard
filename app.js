@@ -4,7 +4,7 @@ const app = express();
 
 app.use(express.urlencoded({ extended: true }));
 
-const indexRouter = require("./routes/indexRouter");
+const { indexRouter } = require("./routes/indexRouter");
 const newRouter = require("./routes/newRouter");
 const detailsRouter = require("./routes/detailsRouter");
 
