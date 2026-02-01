@@ -1,5 +1,5 @@
 const Router = require('express');
-const { getMessageById } = require("./indexRouter")
+const { getMessageById } = require("../controllers/detailsController");
 
 const detailsRouter = Router();
 
