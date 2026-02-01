@@ -1,6 +1,6 @@
-const Router = require("express");
+const express = require("express");
 
-const indexRouter = Router();
+const indexRouter = express.Router();
 
 const messages = [
   {
@@ -31,4 +31,4 @@ indexRouter.post("/new", (req, res) => {
   res.redirect("/");
 });
 
-module.exports = { indexRouter, getMessageById};
+module.exports = { indexRouter, getMessageById };
