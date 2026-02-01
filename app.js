@@ -6,9 +6,11 @@ app.use(express.urlencoded({ extended: true }));
 
 const indexRouter = require("./routes/indexRouter");
 const newRouter = require("./routes/newRouter");
+const detailsRouter = require("./routes/detailsRouter");
 
 app.use("/", indexRouter);
 app.use("/new", newRouter);
+app.use("/details", detailsRouter);
 
 const assetsPath = path.join(__dirname, "public");
 app.use(express.static(assetsPath));
