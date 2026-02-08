@@ -12,7 +12,13 @@ async function newMessageGet(req, res) {
     res.render("form");
 };
 
+async function newMessagePost(req, res) {
+    await db.postNewMessage(req.body.message, req.body.name)
+    res.redirect("/");
+}
+
 module.exports = {
    messagesGet,
-   newMessageGet
+   newMessageGet,
+   newMessagePost
 };
