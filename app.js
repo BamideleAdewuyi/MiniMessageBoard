@@ -1,23 +1,12 @@
-const express = require('express');
+const express = require("express");
 const path = require("node:path");
 const app = express();
-
-app.use(express.urlencoded({ extended: true }));
-
-const { indexRouter } = require("./routes/indexRouter");
-const newRouter = require("./routes/newRouter");
-const detailsRouter = require("./routes/detailsRouter");
-
-app.use("/", indexRouter);
-app.use("/new", newRouter);
-app.use("/details", detailsRouter);
-
-const assetsPath = path.join(__dirname, "public");
-app.use(express.static(assetsPath));
+const messagesRouter = require("./routes/messagesRouter")
 
 app.set("views", path.join(__dirname, "views"));
-
 app.set("view engine", "ejs");
+app.use(express.urlencoded({ extended: true }));
+app.use("/", messagesRouter);
 
 const PORT = 3000;
 
@@ -25,4 +14,5 @@ app.listen(PORT, (error) => {
     if (error) {
         throw error;
     }
+    console.log("Port 3000 running app")
 });
