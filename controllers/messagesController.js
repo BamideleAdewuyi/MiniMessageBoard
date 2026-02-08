@@ -7,3 +7,7 @@ async function messagesGet(req, res) {
         messages: messages,
   });
 };
+
+module.exports = {
+   messagesGet
+};
