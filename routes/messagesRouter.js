@@ -3,5 +3,5 @@ const messagesController = require("../controllers/messagesController");
 const messagesRouter = Router();
 
 messagesRouter.get("/", messagesController.messagesGet);
-messagesRouter.get("/new", messagesController.searchMessagesGet)
+messagesRouter.get("/new", messagesController.newMessageGet)
 module.exports = messagesRouter;
