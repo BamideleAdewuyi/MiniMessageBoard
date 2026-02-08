@@ -8,11 +8,11 @@ async function messagesGet(req, res) {
   });
 };
 
-async function searchMessagesGet(req, res) {
+async function newMessageGet(req, res) {
     res.render("form");
 };
 
 module.exports = {
    messagesGet,
-   searchMessagesGet
+   newMessageGet
 };
