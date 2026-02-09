@@ -10,8 +10,8 @@ const messageLengthErr = "can be maximum 255 characters.";
 const validateUser = [
     body("name").trim()
         .isAlpha().withMessage(`Name ${alphaErr}`)
-        .isLength({ min: 1, max: 10 }).withMessage(`Name ${nameLengthErr}`),
-    body("text").trim()
+        .isLength({ min: 1, max: 30 }).withMessage(`Name ${nameLengthErr}`),
+    body("message").trim()
         .isLength({ max: 255}).withMessage(`Message ${messageLengthErr}`)
 ];
 
@@ -31,10 +31,20 @@ async function newMessageGet(req, res) {
     res.render("form");
 };
 
-async function newMessagePost(req, res) {
-    await db.postNewMessage(req.body.message, req.body.name)
-    res.redirect("/");
-};
+const newMessagePost = [
+    validateUser,
+    async (req, res) => {
+        const errors = validationResult(req);
+        if (!errors.isEmpty()) {
+            return res.status(400).render("form", {
+                errors: errors.array(),
+            });
+        }
+        const { message, name } = matchedData(req);
+        await db.postNewMessage({ message, name });
+        res.redirect("/");
+    }
+];
 
 async function messageGet(req, res) {
     const id = req.params.id;
