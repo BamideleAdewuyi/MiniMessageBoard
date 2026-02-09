@@ -8,11 +8,11 @@ app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 app.use("/", messagesRouter);
 
-const PORT = 3000;
+const PORT = process.env.PORT || 3001;
 
 app.listen(PORT, (error) => {
     if (error) {
         throw error;
     }
-    console.log("Port 3000 running app")
+    console.log("App up and running")
 });
