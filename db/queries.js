@@ -10,7 +10,7 @@ async function postNewMessage(text, name) {
 }
 
 async function getMessage(id) {
-    const { rows } = await pool.query("SELECT * FROM messages WHERE id=$1)", [id]);
+    const { rows } = await pool.query("SELECT * FROM messages WHERE id=$1", [id]);
     return rows;
 }
 
