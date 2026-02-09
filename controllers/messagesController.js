@@ -15,10 +15,21 @@ async function newMessageGet(req, res) {
 async function newMessagePost(req, res) {
     await db.postNewMessage(req.body.message, req.body.name)
     res.redirect("/");
-}
+};
+
+async function messageGet(req, res) {
+    const id = req.params.id;
+    const rows = await db.getMessage(id)
+    const message = rows[0];
+    res.render(`details`, {
+        title: "Message Details",
+        message: message
+    });
+};
 
 module.exports = {
    messagesGet,
    newMessageGet,
-   newMessagePost
+   newMessagePost,
+   messageGet
 };
