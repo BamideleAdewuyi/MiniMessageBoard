@@ -5,6 +5,20 @@ const alphaErr = "must only contain letters.";
 const nameLengthErr = "must be between 1 and 30 characters";
 const messageLengthErr = "can be maximum 255 characters.";
 
+// Validation
+
+const validateUser = [
+    body("name").trim()
+        .isAlpha().withMessage(`Name ${alphaErr}`)
+        .isLength({ min: 1, max: 10 }).withMessage(`Name ${nameLengthErr}`),
+    body("text").trim()
+        .isLength({ max: 255}).withMessage(`Message ${messageLengthErr}`)
+];
+
+
+
+// Controller functions
+
 async function messagesGet(req, res) {
   const messages = await db.getAllMessages();
   res.render("index", {
