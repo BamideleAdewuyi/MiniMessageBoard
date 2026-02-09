@@ -1,4 +1,9 @@
 const db = require("../db/queries");
+const { body, validationResult, matchedData } = require("express-validator");
+
+const alphaErr = "must only contain letters.";
+const nameLengthErr = "must be between 1 and 30 characters";
+const messageLengthErr = "can be maximum 255 characters.";
 
 async function messagesGet(req, res) {
   const messages = await db.getAllMessages();
